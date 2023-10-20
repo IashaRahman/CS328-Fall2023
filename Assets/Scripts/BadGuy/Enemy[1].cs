@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class BaseEnemy : MonoBehaviour
+public class BaseEnemy : MonoBehaviour
 {
     public float health = 100f;
     public float damage = 10f;
@@ -12,7 +12,10 @@ public abstract class BaseEnemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    public abstract void Attack();
+    public void Attack()
+    {
+
+    }
 
     public void TakeDamage(float amount)
     {
