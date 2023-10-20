@@ -13,6 +13,8 @@ public class Move : MonoBehaviour
 	private Rigidbody2D rb;
 	private SpriteRenderer [] img;
 
+	public int health = 100;
+
 	//private bool jump;
 	//private bool isGrounded;
 
@@ -68,6 +70,13 @@ public class Move : MonoBehaviour
 
     }
 
+
+	void Attacked()
+	{
+		health -= 10;
+		if (health <= 0)
+			Debug.Log("Died");
+	}
 	void FixedUpdate()
 	{
 		Vector2 movement = new Vector2(movementX,movementY);
