@@ -5,9 +5,9 @@ public class BaseEnemy : MonoBehaviour
     public float health = 100f;
     public float damage = 10f;
     public float attackSpeed = 1f; 
-    protected GameObject player;
+    public GameObject player;
 
-    protected virtual void Start()
+    public virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -24,7 +24,7 @@ public class BaseEnemy : MonoBehaviour
             Die();
     }
 
-    protected virtual void Die()
+    public virtual void Die()
     {
         Destroy(gameObject);
     }

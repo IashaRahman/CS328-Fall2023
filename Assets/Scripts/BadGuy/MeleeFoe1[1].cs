@@ -6,17 +6,20 @@ public class MeleeEnemy : BaseEnemy
 {
     public float attackRange = 1.5f;
 
-    protected override void Start()
+    public Move temp;
+
+    public override void Start()
     {
         base.Start();
     }
-
+    
     public void Attack()
     {
         if (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
         {
             
             Debug.Log("Melee attack!");
+            temp.Attacked();
         }
     }
 }
