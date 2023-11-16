@@ -14,7 +14,7 @@ public class BaseEnemy : MonoBehaviour
 
     public void Attack()
     {
-
+        Debug.Log("called");
     }
 
     public void TakeDamage(float amount)

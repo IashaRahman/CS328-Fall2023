@@ -71,7 +71,7 @@ public class Move : MonoBehaviour
     }
 
 
-	void Attacked()
+	public void Attacked()
 	{
 		health -= 10;
 		if (health <= 0)
