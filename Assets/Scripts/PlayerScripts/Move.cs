@@ -87,6 +87,15 @@ public class Move : MonoBehaviour
 	}
 
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Coliided");
+        if (collision.gameObject.tag == "SpeedBoost")
+        {
+            speed *= 2;
+            Destroy(collision.gameObject);
+        }
+    }
 
 
 }
