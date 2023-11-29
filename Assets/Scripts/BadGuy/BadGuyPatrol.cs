@@ -36,7 +36,7 @@ public class BadGuyPatrol : MonoBehaviour
 
          //   GetComponent<Rigidbody2D>().MovePosition(pos);
         }
-        else //if (transform.position.x == target[current].position.x && this.transform.position.y == target[current].position.y)
+        else// if (transform.position.x == target[current].position.x && this.transform.position.y == target[current].position.y)
             current = (current + 1) % target.Length;
 
         //Debug.Log("Tar Pos: " + target[current].position);
