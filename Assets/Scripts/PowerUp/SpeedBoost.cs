@@ -35,5 +35,10 @@ public class SpeedBoost : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("triggerCollide");
+        if (collision.gameObject.tag == "Player")
+        {
+            playerMove.speed *= 2;
+            Destroy(this);
+        }
     }
 }
