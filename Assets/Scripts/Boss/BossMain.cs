@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BossMain : MonoBehaviour
@@ -10,7 +11,9 @@ public class BossMain : MonoBehaviour
     //public GameObject instruct;
     //public GameObject winTextObject;
     private Rigidbody2D rb;
-    private SpriteRenderer[] img;
+    public Sprite[] Attack;
+
+    public SpriteRenderer current;
 
     public Move playerRef;
 
@@ -68,8 +71,15 @@ public class BossMain : MonoBehaviour
         Debug.Log("Coliided");
         if (collision.gameObject.tag == "Player")
         {
+            current.sprite = Attack[0];
+            ChangeSprite(current.sprite);
             Swing();
         }
+    }
+
+    private void ChangeSprite(Sprite newSprite)
+    {
+        // = newSprite;
     }
 
     private void Swing()
