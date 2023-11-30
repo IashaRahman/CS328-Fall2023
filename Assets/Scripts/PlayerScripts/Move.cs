@@ -95,6 +95,11 @@ public class Move : MonoBehaviour
             speed *= 2;
             Destroy(collision.gameObject);
         }
+		else if(collision.gameObject.tag == "HealthBoost")
+		{
+			health += 50;
+			Destroy(collision.gameObject);
+		}
     }
 
 
