@@ -40,6 +40,8 @@ public class BossMain : MonoBehaviour
 
 
         //winTextObject.SetActive(false);
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
