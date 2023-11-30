@@ -13,7 +13,7 @@ public class BossMain : MonoBehaviour
     private Rigidbody2D rb;
     public Sprite[] Attack;
 
-    public SpriteRenderer current;
+    public SpriteRenderer spriteRenderer;
 
     public Move playerRef;
 
@@ -44,7 +44,7 @@ public class BossMain : MonoBehaviour
 
     void Update()
     {
-      
+        ChangeSprite();
     }
 
    
@@ -68,18 +68,18 @@ public class BossMain : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+      
         Debug.Log("Coliided");
         if (collision.gameObject.tag == "Player")
         {
-            current.sprite = Attack[0];
-            ChangeSprite(current.sprite);
+            ChangeSprite();
             Swing();
         }
     }
 
-    private void ChangeSprite(Sprite newSprite)
+    private void ChangeSprite()
     {
-        // = newSprite;
+        spriteRenderer.sprite = Attack[0];
     }
 
     private void Swing()
