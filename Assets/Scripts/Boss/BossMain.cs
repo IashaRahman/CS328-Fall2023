@@ -7,16 +7,25 @@ using UnityEngine.PlayerLoop;
 public class BossMain : MonoBehaviour
 {
 
+    /*
+     * !!!!!!!!!
+     * IF GETTING REFERENCE TO OBJECT NOT SET 
+     * ATTACH PLAYER'S MOVE SCRIPT TO PLAYER REFERENCE
+     * !!!!!!!!!
+     */
+
 
     //public TextMeshProUGUI countText;
     //public GameObject instruct;
     //public GameObject winTextObject;
     private Rigidbody2D rb;
     public Sprite[] Attack;
+    public Sprite[] Dash;
 
     public Sprite idle;
 
     private bool swing = false;
+    private bool dash = false;
 
     public SpriteRenderer spriteRenderer;
 
@@ -58,6 +67,8 @@ public class BossMain : MonoBehaviour
         {
             AttackAnimation(attackLen -= 1);
         }
+        else if (dash)
+            DashAttack(attackLen -= 1);
     }
 
    
@@ -81,25 +92,49 @@ public class BossMain : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-      
-        Debug.Log("Coliided");
-        if (collision.gameObject.tag == "Player")
+        if (collision.collider.GetType() == typeof(CapsuleCollider2D))
         {
+            Debug.Log("Coliided");
+            if (collision.gameObject.tag == "Player")
+            {
 
-            swing = true;
-            Swing();
-        }
+                swing = true;
+                Swing();
+            }
+        }// capsule collider shit
+        else if (collision.GetType() == typeof(BoxCollider2D))
+        {
+            if (collision.gameObject.tag == "Player")
+            {
+
+                dash = true;
+                Swing();
+            }
+        }// box collider shit
     }
 
     private void AttackAnimation(int i)
     {
         if (i < 0)
         {
-            swing = false;
+            dash = false;
             spriteRenderer.sprite = idle;
+            attackLen = 6;
         }
         else
             spriteRenderer.sprite = Attack[i];
+    }
+
+    private void DashAttack(int i)
+    {
+        if (i < 0)
+        {
+            attackLen = 6;
+            dash = false;
+            spriteRenderer.sprite = idle;
+        }
+        else
+            spriteRenderer.sprite = Dash[i];
     }
 
     private void Swing()
