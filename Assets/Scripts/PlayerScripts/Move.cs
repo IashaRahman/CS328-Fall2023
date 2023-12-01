@@ -14,6 +14,7 @@ public class Move : MonoBehaviour
 	private SpriteRenderer [] img;
 
 	public int health = 100;
+	public Animator animator;
 
 	//private bool jump;
 	//private bool isGrounded;
@@ -41,6 +42,8 @@ public class Move : MonoBehaviour
 	void Update()
 	{
 		DoIMove();
+
+		animator.SetFloat("Speed", Mathf.Abs(movementX));
 	}
 
 	void DoIMove()

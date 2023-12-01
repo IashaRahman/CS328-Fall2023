@@ -1832,6 +1832,10 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 695694850814562134, guid: edb782476de28ce45871ba0f27410851, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1140863221}
     - target: {fileID: 715062973303117680, guid: edb782476de28ce45871ba0f27410851, type: 3}
       propertyPath: m_Name
       value: Guy
@@ -1966,6 +1970,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 715062973303117680, guid: edb782476de28ce45871ba0f27410851, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1140863220}
+    - targetCorrespondingSourceObject: {fileID: 715062973303117680, guid: edb782476de28ce45871ba0f27410851, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1140863221}
   m_SourcePrefab: {fileID: 100100000, guid: edb782476de28ce45871ba0f27410851, type: 3}
 --- !u!1 &437098093
 GameObject:
@@ -4249,6 +4256,27 @@ CapsuleCollider2D:
   m_Offset: {x: -0.008780956, y: 0.03512454}
   m_Size: {x: 0.32870588, y: 0.55701476}
   m_Direction: 0
+--- !u!95 &1140863221
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711235119}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1e93f2cf6b3a74b1ea05646cc029f953, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1205535234
 GameObject:
   m_ObjectHideFlags: 0
