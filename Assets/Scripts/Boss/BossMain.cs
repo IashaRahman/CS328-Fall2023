@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class BossMain : MonoBehaviour
 {
@@ -13,11 +14,17 @@ public class BossMain : MonoBehaviour
     private Rigidbody2D rb;
     public Sprite[] Attack;
 
+    public Sprite idle;
+
+    private bool swing = false;
+
     public SpriteRenderer spriteRenderer;
 
     public Move playerRef;
 
     public int health = 100;
+
+    public int attackLen = 6;
 
     //private bool jump;
     //private bool isGrounded;
@@ -46,7 +53,11 @@ public class BossMain : MonoBehaviour
 
     void Update()
     {
-        ChangeSprite();
+        //ChangeSprite();
+        if (swing)
+        {
+            AttackAnimation(attackLen -= 1);
+        }
     }
 
    
@@ -74,14 +85,21 @@ public class BossMain : MonoBehaviour
         Debug.Log("Coliided");
         if (collision.gameObject.tag == "Player")
         {
-            ChangeSprite();
+
+            swing = true;
             Swing();
         }
     }
 
-    private void ChangeSprite()
+    private void AttackAnimation(int i)
     {
-        spriteRenderer.sprite = Attack[0];
+        if (i < 0)
+        {
+            swing = false;
+            spriteRenderer.sprite = idle;
+        }
+        else
+            spriteRenderer.sprite = Attack[i];
     }
 
     private void Swing()
