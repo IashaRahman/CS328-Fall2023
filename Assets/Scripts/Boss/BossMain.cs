@@ -2,9 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class BossMain : MonoBehaviour
 {
+
+    /*
+     * !!!!!!!!!
+     * IF GETTING REFERENCE TO OBJECT NOT SET 
+     * ATTACH PLAYER'S MOVE SCRIPT TO PLAYER REFERENCE
+     * !!!!!!!!!
+     */
 
 
     //public TextMeshProUGUI countText;
@@ -12,12 +20,20 @@ public class BossMain : MonoBehaviour
     //public GameObject winTextObject;
     private Rigidbody2D rb;
     public Sprite[] Attack;
+    public Sprite[] Dash;
 
-    public SpriteRenderer current;
+    public Sprite idle;
+
+    private bool swing = false;
+    private bool dash = false;
+
+    public SpriteRenderer spriteRenderer;
 
     public Move playerRef;
 
     public int health = 100;
+
+    public int attackLen = 6;
 
     //private bool jump;
     //private bool isGrounded;
@@ -40,11 +56,19 @@ public class BossMain : MonoBehaviour
 
 
         //winTextObject.SetActive(false);
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-      
+        //ChangeSprite();
+        if (swing)
+        {
+            AttackAnimation(attackLen -= 1);
+        }
+        else if (dash)
+            DashAttack(attackLen -= 1);
     }
 
    
@@ -68,18 +92,49 @@ public class BossMain : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Coliided");
-        if (collision.gameObject.tag == "Player")
+        if (collision.collider.GetType() == typeof(CapsuleCollider2D))
         {
-            current.sprite = Attack[0];
-            ChangeSprite(current.sprite);
-            Swing();
-        }
+            Debug.Log("Coliided");
+            if (collision.gameObject.tag == "Player")
+            {
+
+                swing = true;
+                Swing();
+            }
+        }// capsule collider shit
+        else if (collision.GetType() == typeof(BoxCollider2D))
+        {
+            if (collision.gameObject.tag == "Player")
+            {
+
+                dash = true;
+                Swing();
+            }
+        }// box collider shit
     }
 
-    private void ChangeSprite(Sprite newSprite)
+    private void AttackAnimation(int i)
     {
-        // = newSprite;
+        if (i < 0)
+        {
+            dash = false;
+            spriteRenderer.sprite = idle;
+            attackLen = 6;
+        }
+        else
+            spriteRenderer.sprite = Attack[i];
+    }
+
+    private void DashAttack(int i)
+    {
+        if (i < 0)
+        {
+            attackLen = 6;
+            dash = false;
+            spriteRenderer.sprite = idle;
+        }
+        else
+            spriteRenderer.sprite = Dash[i];
     }
 
     private void Swing()
