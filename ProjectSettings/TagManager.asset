@@ -39,6 +39,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: floor
+    uniqueID: 3211833733
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Layer 1
+    uniqueID: 3337866081
+    locked: 0
+  - name: Layer 2
+    uniqueID: 275956453
+    locked: 0
+  - name: Layer 3
+    uniqueID: 249147783
+    locked: 0
+  - name: Layer 4
+    uniqueID: 1747624697
+    locked: 0
+  - name: Characters
+    uniqueID: 824850947
     locked: 0
