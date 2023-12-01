@@ -12,6 +12,8 @@ public class Move : MonoBehaviour
 	//public GameObject winTextObject;
 	private Rigidbody2D rb;
 	private SpriteRenderer [] img;
+	private SpriteRenderer spriteRenderer;
+
 
 	public int health = 100;
 	public Animator animator;
@@ -27,16 +29,8 @@ public class Move : MonoBehaviour
 	//private int count;
 	void Start()
 	{
-		//jump = false;
-		//isGrounded = true;
 		rb = GetComponent<Rigidbody2D>();
-	//	for(int i=0;i<4;i++)
-		//	img[i] = new SpriteRenderer(/Assets/ImportCrap/)
-
-		//count = 0;
-		
-
-		//winTextObject.SetActive(false);
+		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
 	void Update()
@@ -54,24 +48,22 @@ public class Move : MonoBehaviour
 			v.y = 0.1f;
 		if (Input.GetKey(KeyCode.S))
 			v.y = -0.1f;
-	//	else
-		//	v.y = 0;
 
 		if (Input.GetKey(KeyCode.A))
+		{
 			v.x = -0.1f;
+			spriteRenderer.flipX = true; 
+		}
 		if (Input.GetKey(KeyCode.D))
+		{
 			v.x = 0.1f;
-		//else
-		//	v.x = 0;
-	
+			spriteRenderer.flipX = false; 
+		}
 
-        //Vector3 v3 = value.
+		movementX = v.x;
+		movementY = v.y;
+	}
 
-        movementX = v.x;
-        movementY = v.y;
-
-
-    }
 
 
 	public void Attacked()
