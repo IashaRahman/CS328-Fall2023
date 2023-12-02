@@ -35,10 +35,20 @@ public class PlayerCombat : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<Enemy1>().TakeDamage(attackDamage);
-        }
+            Enemy1 enemy1Component = enemy.GetComponent<Enemy1>();
+            Boss1 boss1Component = enemy.GetComponent<Boss1>();
 
+            if (enemy1Component != null)
+            {
+                enemy1Component.TakeDamage(attackDamage);
+            }
+            else if (boss1Component != null)
+            {
+                boss1Component.TakeDamage(attackDamage);
+            }
+        }
     }
+
 
     private void OnDrawGizmosSelected()
     {

@@ -10,7 +10,7 @@ public class Boss1Weapon : MonoBehaviour
     public float attackRange = 1f;
     public LayerMask attackMask;
 
-    void Attack()
+    public void Attack()
     {
         Vector3 pos = transform.position;
         pos += transform.right * attackOffset.x;
@@ -19,7 +19,29 @@ public class Boss1Weapon : MonoBehaviour
         Collider2D colInfo = Physics2D.OverlapCircle(pos, attackRange, attackMask);
         if (colInfo != null)
         {
-            colInfo.GetComponent<Player>().TakeDamage();
+            Player player = colInfo.GetComponent<Player>();
+            if (player != null)
+            {
+                player.TakeDamage();
+            }
+            else
+            {
+                Debug.LogWarning("Collider hit, but the object does not have a Player component.");
+            }
         }
+        else
+        {
+            Debug.Log("No collider hit!");
+        }
+    }
+
+
+    void OnDrawGizmosSelected()
+    {
+        Vector3 pos = transform.position;
+        pos += transform.right * attackOffset.x;
+        pos += transform.up * attackOffset.y;
+
+        Gizmos.DrawWireSphere(pos, attackRange);
     }
 }

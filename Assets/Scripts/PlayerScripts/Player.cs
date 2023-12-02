@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		currentHealth = maxHealth;
-		healthBar.setMaxHealth(maxHealth);
+		healthBar.SetMaxHealth(maxHealth);
 	}
 
 	void Update()
@@ -79,7 +79,9 @@ public class Player : MonoBehaviour
 	{
 		Debug.Log("You died!");
 
-		animator.SetBool("IsDead", true);
+		animator.SetBool("isDead", true);
+
+		FindObjectOfType<Boss1>().PlayerDied();
 
 		GetComponent<Collider2D>().enabled = false;
 		this.enabled = false;

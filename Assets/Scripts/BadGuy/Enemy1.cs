@@ -9,7 +9,6 @@ public class Enemy1 : MonoBehaviour
     public int maxHealth = 100;
     int currentHealth;
 
-    // Update is called once per frame
     void Start()
     {
         currentHealth = maxHealth;
@@ -36,16 +35,8 @@ public class Enemy1 : MonoBehaviour
 
         GetComponent<Collider2D>().enabled = false;
         GetComponent<BadGuyPatrol>().enabled = false;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         this.enabled = false;
-
-        BadGuyPatrol badGuyPatrolScript = GetComponent<BadGuyPatrol>();
-
-        if (badGuyPatrolScript != null)
-        {
-            badGuyPatrolScript.enabled = false;
-
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        }
     }
 }
 
