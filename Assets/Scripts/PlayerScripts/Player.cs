@@ -6,7 +6,6 @@ using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
-
 	private Rigidbody2D rb;
 	private SpriteRenderer[] img;
 	private SpriteRenderer spriteRenderer;
@@ -17,6 +16,7 @@ public class Player : MonoBehaviour
 	public int currentHealth;
 
 	public HealthBar healthBar;
+	public GameOver gameOver;
 
 	private float movementX;
 	private float movementY;
@@ -85,6 +85,15 @@ public class Player : MonoBehaviour
 
 		GetComponent<Collider2D>().enabled = false;
 		this.enabled = false;
+
+		StartCoroutine(ShowGameOverScreen());
+	}
+
+	IEnumerator ShowGameOverScreen()
+	{
+		yield return new WaitForSeconds(5f);
+
+		gameOver.GameOverScreen();
 	}
 
 	void FixedUpdate()
@@ -108,6 +117,5 @@ public class Player : MonoBehaviour
 			Destroy(collision.gameObject);
 		}
 	}
-
 
 }

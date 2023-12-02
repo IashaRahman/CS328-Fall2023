@@ -17,7 +17,7 @@ AnimatorStateMachine:
     m_Position: {x: 30, y: -140, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3066387314488597447}
-    m_Position: {x: 270, y: 130, z: 0}
+    m_Position: {x: 330, y: -230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3680364510804948872}
     m_Position: {x: 550, y: 30, z: 0}
@@ -35,7 +35,7 @@ AnimatorStateMachine:
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 570, y: 120, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
-  m_ExitPosition: {x: 800, y: 290, z: 0}
+  m_ExitPosition: {x: 340, y: 240, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -4770872482586733615}
 --- !u!114 &-8219098070227099450
@@ -214,7 +214,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Boss1_Attack2
+  m_Name: Boss1_Attack1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -227,7 +227,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7ee1f89226a2e4f6d8e6e4d3b4a538fe, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2d4cb26c5ec5b46a69051c3ffeffb4d9, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -298,31 +298,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: RunTrigger
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: IdleTrigger
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Hurt
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isDead
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -368,7 +368,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Boss1_Attack1
+  m_Name: Boss1_Attack2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -384,7 +384,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 2d4cb26c5ec5b46a69051c3ffeffb4d9, type: 2}
+  m_Motion: {fileID: 7400000, guid: 7ee1f89226a2e4f6d8e6e4d3b4a538fe, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
