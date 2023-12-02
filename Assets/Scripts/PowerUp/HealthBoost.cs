@@ -6,7 +6,7 @@ public class HealthBoost : MonoBehaviour
 {
     private Collider2D rb;
     // public GameObject player;
-    public Move playerMove;
+    public Player playerMove;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +37,7 @@ public class HealthBoost : MonoBehaviour
         Debug.Log("triggerCollide");
         if (collision.gameObject.tag == "Player")
         {
-            playerMove.health += 50;
+            playerMove.currentHealth += 50;
             Destroy(this);
 
         }

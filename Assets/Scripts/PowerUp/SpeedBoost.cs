@@ -7,7 +7,7 @@ public class SpeedBoost : MonoBehaviour
 
     private Collider2D rb;
    // public GameObject player;
-    public Move playerMove;
+    public Player playerMove;
     // Start is called before the first frame update
     void Start()
     {
