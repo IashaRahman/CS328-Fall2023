@@ -5,7 +5,7 @@ using UnityEngine;
 public class BadGuyPatrol : MonoBehaviour
 {
 
-    public GameObject SpotZone;
+   // public GameObject SpotZone;
     public Transform[] target;
     public float speed;
     public Rigidbody2D rb;
