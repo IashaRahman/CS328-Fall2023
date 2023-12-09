@@ -1,4 +1,0 @@
-repository "CS328-Fall2023@whiteferrari@cloud"
-  path "/"
-    br "/main"
-    co "/main"
