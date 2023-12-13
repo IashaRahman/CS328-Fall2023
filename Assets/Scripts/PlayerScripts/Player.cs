@@ -41,18 +41,18 @@ public class Player : MonoBehaviour
 		Vector2 v = new Vector2();
 
 		if (Input.GetKey(KeyCode.W))
-			v.y = 0.1f;
+			v.y = speed;
 		if (Input.GetKey(KeyCode.S))
-			v.y = -0.1f;
+			v.y = -speed;
 
 		if (Input.GetKey(KeyCode.A))
 		{
-			v.x = -0.1f;
+			v.x = -speed;
 			spriteRenderer.flipX = true;
 		}
 		if (Input.GetKey(KeyCode.D))
 		{
-			v.x = 0.1f;
+			v.x = speed;
 			spriteRenderer.flipX = false;
 		}
 
