@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		currentHealth = maxHealth;
 		healthBar.SetMaxHealth(maxHealth);
+		speed = 0.1f;
 	}
 
 	void Update()
