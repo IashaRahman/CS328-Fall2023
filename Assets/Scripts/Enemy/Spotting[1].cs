@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class Spotting : MonoBehaviour
 {
     public GameObject player;
+    public GameObject enemyTypeToSpawn;
     public float attackSpeed = 5f;
     public bool isSpotted = false; 
 
@@ -16,6 +18,7 @@ public class Spotting : MonoBehaviour
         if (isAttacking)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, attackSpeed * Time.deltaTime);
+            
         }
     }
 
@@ -32,15 +35,17 @@ public class Spotting : MonoBehaviour
         {
             if (!isSpotted)
             {
-                //Get rekt scrub
-                Destroy(player);
+                isAttacking = true;
+                isSpotted = false;
+                CallReinforcements();
             }
-            else
-            {
-                // Taking any damage.
-                Debug.Log("Player has taken damage!");
-            }
-            isAttacking = true;
+           
         }
     }
+
+    private void CallReinforcements()
+    {
+        Instantiate(enemyTypeToSpawn);
+    }
+
 }
