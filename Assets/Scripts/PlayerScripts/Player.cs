@@ -7,7 +7,6 @@ using UnityEngine.UIElements;
 public class Player : MonoBehaviour
 {
 	private Rigidbody2D rb;
-	private SpriteRenderer[] img;
 	private SpriteRenderer spriteRenderer;
 
 	public Animator animator;
@@ -61,6 +60,13 @@ public class Player : MonoBehaviour
 		movementY = v.y;
 	}
 
+	void FixedUpdate()
+	{
+		Vector2 movement = new Vector2(movementX, movementY);
+
+		rb.MovePosition(rb.position + movement);
+	}
+
 	public void TakeDamage()
 	{
 		currentHealth -= 10;
@@ -95,27 +101,4 @@ public class Player : MonoBehaviour
 
 		gameOver.GameOverScreen();
 	}
-
-	void FixedUpdate()
-	{
-		Vector2 movement = new Vector2(movementX, movementY);
-
-		rb.MovePosition(rb.position + movement);
-	}
-
-	public void OnCollisionEnter2D(Collision2D collision)
-	{
-		Debug.Log("Collided");
-		if (collision.gameObject.tag == "SpeedBoost")
-		{
-			speed *= 4;
-			Destroy(collision.gameObject);
-		}
-		else if (collision.gameObject.tag == "HealthBoost")
-		{
-			currentHealth += 50;
-			Destroy(collision.gameObject);
-		}
-	}
-
 }

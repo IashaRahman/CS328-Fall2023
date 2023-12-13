@@ -4,42 +4,28 @@ using UnityEngine;
 
 public class HealthBoost : MonoBehaviour
 {
-    private Collider2D rb;
-    // public GameObject player;
-    public Player playerMove;
-    // Start is called before the first frame update
-    void Start()
+
+    private void OnTriggerEnter2D (Collider2D other)
     {
-        rb = GetComponent<BoxCollider2D>();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-     /*   Debug.Log("Coliided");
-        if (collision.gameObject.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            playerMove.speed *= 2;
-            Destroy(this);
+            healthPickup(other);
         }
-     */
+
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void healthPickup(Collider2D player)
     {
-        Debug.Log("triggerCollide");
-        if (collision.gameObject.tag == "Player")
-        {
-            playerMove.currentHealth += 50;
-            Destroy(this);
+        Debug.Log("Health Power up picked up!");
 
-        }
+        // Apply effect to player
+        Player healthBoost = player.GetComponent<Player>();
+        healthBoost.currentHealth += 50;
+
+        // Update the health bar
+        player.GetComponent<Player>().healthBar.SetHealth(healthBoost.currentHealth);
+
+        // Remove power up object
+        Destroy(gameObject);
     }
 }
