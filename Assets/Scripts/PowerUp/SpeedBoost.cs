@@ -2,43 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedBoost : MonoBehaviour
+public class speedBoost : MonoBehaviour
 {
+    public float multiplier = 1.5f;
+    public float duration = 8f;
 
-    private Collider2D rb;
-   // public GameObject player;
-    public Player playerMove;
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        rb = GetComponent<BoxCollider2D>();
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-        Debug.Log("Coliided");
-        if (collision.gameObject.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            playerMove.speed *= 2;
-            Destroy(this);
+            StartCoroutine(speedPickup(other));
         }
+
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    IEnumerator speedPickup(Collider2D player)
     {
-        Debug.Log("triggerCollide");
-        if (collision.gameObject.tag == "Player")
-        {
-            playerMove.speed *= 2;
-            Destroy(this);
-        }
+        Debug.Log("Speed Power up picked up!");
+
+        // Apply effect to player
+        Player speedBoost = player.GetComponent<Player>();
+        speedBoost.speed *= multiplier;
+
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+
+        // Wait x amount of seconds
+        yield return new WaitForSeconds(duration);
+
+        // Reverse effect on player
+        speedBoost.speed /= multiplier;
+
+        // Remove power up object
+        Destroy(gameObject);
     }
 }
+ 
