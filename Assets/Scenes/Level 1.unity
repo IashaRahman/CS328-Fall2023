@@ -1695,6 +1695,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4932890887702934151, guid: bcf119636c8df124590ac564ae008011, type: 3}
   m_PrefabInstance: {fileID: 4618205443192702319}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &224101264 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8955804132490552499, guid: bcf119636c8df124590ac564ae008011, type: 3}
+  m_PrefabInstance: {fileID: 4618205443192702319}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &250722842
 GameObject:
   m_ObjectHideFlags: 0
@@ -12199,9 +12204,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1297074143375892704, guid: bcf119636c8df124590ac564ae008011, type: 3}
+      propertyPath: util
+      value: 
+      objectReference: {fileID: 2037737294}
+    - target: {fileID: 1297074143375892704, guid: bcf119636c8df124590ac564ae008011, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1140863215}
+    - target: {fileID: 1297074143375892704, guid: bcf119636c8df124590ac564ae008011, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 224101264}
     - target: {fileID: 1297074143375892704, guid: bcf119636c8df124590ac564ae008011, type: 3}
       propertyPath: enemyTypeToCall
       value: 
