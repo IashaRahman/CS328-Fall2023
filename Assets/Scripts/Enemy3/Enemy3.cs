@@ -12,7 +12,7 @@ public class Enemy3 : MonoBehaviour
     private bool isFlipped = false;
     private bool isPlayerAlive = true;
 
-    public int maxHealth = 200;
+    public int maxHealth = 100;
     int currentHealth;
 
     void Start()

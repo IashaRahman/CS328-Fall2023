@@ -49,6 +49,7 @@ public class PlayerCombat : MonoBehaviour
             Boss1 boss1Component = enemy.GetComponent<Boss1>();
             Enemy2 enemy2Component = enemy.GetComponent<Enemy2>();
             Enemy3 enemy3Component = enemy.GetComponent<Enemy3>();
+            Enemy4 enemy4Component = enemy.GetComponent<Enemy4>();
 
             if (enemy1Component != null)
             {
@@ -65,6 +66,10 @@ public class PlayerCombat : MonoBehaviour
             else if(enemy3Component != null)
             {
                 enemy3Component.TakeDamage(attackDamage/2);
+            }
+            else if(enemy4Component ! = null)
+            {
+                enemy4Component.TakeDamage(attackDamage);
             }
         }
     }
