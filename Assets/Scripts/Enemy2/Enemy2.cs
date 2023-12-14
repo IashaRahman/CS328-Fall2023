@@ -12,8 +12,8 @@ public class Enemy2 : MonoBehaviour
     private bool isFlipped = false;
     private bool isPlayerAlive = true;
 
-    public int maxHealth = 200;
-    int currentHealth;
+    public int maxHealth = 30;
+    public int currentHealth;
 
     void Start()
     {
@@ -95,7 +95,7 @@ public class Enemy2 : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Boss1 died!");
+        Debug.Log("Enemy2 died!");
 
         animator.SetBool("isDead", true);
 
