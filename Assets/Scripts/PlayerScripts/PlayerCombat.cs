@@ -10,7 +10,7 @@ public class PlayerCombat : MonoBehaviour
     public Transform attackPointLeft;  // Attack point for facing left
     public LayerMask enemyLayers;
 
-    public float attackRange = 0.5f;
+    public float attackRange = 1f;
     public int attackDamage = 40;
 
     public float attackRate = 2f;
@@ -47,6 +47,9 @@ public class PlayerCombat : MonoBehaviour
         {
             Enemy1 enemy1Component = enemy.GetComponent<Enemy1>();
             Boss1 boss1Component = enemy.GetComponent<Boss1>();
+            Enemy2 enemy2Component = enemy.GetComponent<Enemy2>();
+            Enemy3 enemy3Component = enemy.GetComponent<Enemy3>();
+            Enemy4 enemy4Component = enemy.GetComponent<Enemy4>();
 
             if (enemy1Component != null)
             {
@@ -55,6 +58,18 @@ public class PlayerCombat : MonoBehaviour
             else if (boss1Component != null)
             {
                 boss1Component.TakeDamage(attackDamage);
+            }
+            else if (enemy2Component != null)
+            {
+                enemy2Component.TakeDamage(attackDamage);
+            }
+            else if(enemy3Component != null)
+            {
+                enemy3Component.TakeDamage(attackDamage/2);
+            }
+            else if(enemy4Component != null)
+            {
+                enemy4Component.TakeDamage(attackDamage);
             }
         }
     }
