@@ -36,14 +36,12 @@ public class Spotting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsPlayerClose())
+        if (IsPlayerClose() && isSpotted)
         {
-            if (!isSpotted)
-            {
+ 
                 isAttacking = true;
                 isSpotted = false;
-                CallPeeps();
-            }
+ 
         }
 
         if (isPlayerAlive && isSpotted)
