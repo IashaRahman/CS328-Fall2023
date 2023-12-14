@@ -1,30 +1,19 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spotting : MonoBehaviour
+public class Enemy2 : MonoBehaviour
 {
     public Transform player;
-    public GameObject enemyTypeToCall;
-    public Util util = new Util();
-
-
     public Animator animator;
 
-    public float proximityThreshold = 4f;
+    public float proximityThreshold = 5f;
 
     private bool isFlipped = false;
     private bool isPlayerAlive = true;
 
-    public int maxHealth = 10;
+    public int maxHealth = 200;
     int currentHealth;
-    public float attackSpeed = 5f;
-    public bool isSpotted = false; 
-
-    private bool isAttacking = false;
-
-    bool alreadyCalled = false;
 
     void Start()
     {
@@ -33,19 +22,9 @@ public class Spotting : MonoBehaviour
         rb.freezeRotation = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (IsPlayerClose())
-        {
- 
-                isAttacking = true;
-                isSpotted = true;
-                CallPeeps();
- 
-        }
-
-        if (isPlayerAlive && isSpotted)
+        if (isPlayerAlive)
         {
             LookAtPlayer();
 
@@ -54,33 +33,6 @@ public class Spotting : MonoBehaviour
                 RunTowardsPlayer();
             }
         }
-    }
-
-    // 
-    public void SpotNPC()
-    {
-        isSpotted = true;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        GameObject collidedOBJ = collision.gameObject;
-            if (collidedOBJ == player)
-            {   
-                if (!isSpotted)
-                {
-                    isAttacking = true;
-                    isSpotted = false;
-                    CallPeeps();
-                }
-
-            }
-        
-    }
-
-    private void CallPeeps()
-    {
-        util.CallReinforcements(2, enemyTypeToCall);
     }
 
     public void LookAtPlayer()
@@ -152,5 +104,4 @@ public class Spotting : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         this.enabled = false;
     }
-
 }

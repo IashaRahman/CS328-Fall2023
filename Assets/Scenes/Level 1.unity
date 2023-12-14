@@ -5897,11 +5897,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6730079407965115767, guid: edb782476de28ce45871ba0f27410851, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -975.7
+      value: -1207
       objectReference: {fileID: 0}
     - target: {fileID: 6730079407965115767, guid: edb782476de28ce45871ba0f27410851, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -540.47
+      value: -435.9
       objectReference: {fileID: 0}
     - target: {fileID: 6730079407965115767, guid: edb782476de28ce45871ba0f27410851, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8711,13 +8711,15 @@ GameObject:
   - component: {fileID: 1100275563}
   - component: {fileID: 1100275562}
   - component: {fileID: 1100275561}
+  - component: {fileID: 1100275565}
+  - component: {fileID: 1100275564}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1100275559
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8859,14 +8861,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100275558}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -8878,6 +8880,40 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1100275564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100275558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82dc46bb024bae447924090c46cd7e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1140863215}
+  animator: {fileID: 1100275561}
+  proximityThreshold: 5
+  maxHealth: 20
+--- !u!114 &1100275565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100275558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa95985732fa324bb12b05e0ef1d00d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 10
+  attackOffset: {x: -1, y: 0.5, z: 0}
+  attackRange: 1
+  attackMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!4 &1140863215 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6730079407965115767, guid: edb782476de28ce45871ba0f27410851, type: 3}
@@ -8957,7 +8993,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
-  attackRange: 0.5
+  attackRange: 1.5
   attackDamage: 40
   attackRate: 2
 --- !u!114 &1140863235
@@ -12225,7 +12261,7 @@ PrefabInstance:
       objectReference: {fileID: 224101262}
     - target: {fileID: 1297074143375892704, guid: bcf119636c8df124590ac564ae008011, type: 3}
       propertyPath: proximityThreshold
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4932890887702934151, guid: bcf119636c8df124590ac564ae008011, type: 3}
       propertyPath: m_Name
