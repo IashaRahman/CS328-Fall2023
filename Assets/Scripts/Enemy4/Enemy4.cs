@@ -14,6 +14,13 @@ public class Enemy4 : MonoBehaviour
 
     public Animator animator;
 
+    public GameObject arrow;
+
+    public Transform firingPt;
+
+    public float fireRate = 5f;
+    public float fire = 0f;
+
     public float proximityThreshold = 5f;
 
     private bool isFlipped = false;
@@ -25,6 +32,7 @@ public class Enemy4 : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+      //  firingPt = GetComponent<Transform>().fir;
         currentHealth = maxHealth;
 
     }
@@ -37,13 +45,21 @@ public class Enemy4 : MonoBehaviour
         else
         {
             RotateToPlayer();
+            if (fireRate <= fire)
+                Fire();
         }
         
     }
 
+    void Fire()
+    {
+        Instantiate(arrow, firingPt.position, firingPt.rotation);
+        fire = 0f;
+    }
+
     private void FixedUpdate()
     {
-        
+        fire += Time.deltaTime;
     }
 
 

@@ -67,7 +67,7 @@ public class PlayerCombat : MonoBehaviour
             {
                 enemy3Component.TakeDamage(attackDamage/2);
             }
-            else if(enemy4Component ! = null)
+            else if(enemy4Component != null)
             {
                 enemy4Component.TakeDamage(attackDamage);
             }
