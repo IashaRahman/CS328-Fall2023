@@ -10,7 +10,7 @@ public class Enemy2Weapon : MonoBehaviour
     public float attackRange = 1f;
     public LayerMask attackMask;
 
-    public Player player;
+    //public Player player;
 
     public void Attack()
     {
@@ -21,15 +21,15 @@ public class Enemy2Weapon : MonoBehaviour
         Collider2D colInfo = Physics2D.OverlapCircle(pos, attackRange, attackMask);
         if (colInfo != null)
         {
-            //Player player = colInfo.GetComponent<Player>();
-            //if (player != null)
-            //{
+            Player player = colInfo.GetComponent<Player>();
+            if (player != null)
+            {
             player.TakeDamage();
-            //}
-          //  else
-           // {
+            }
+            else
+            {
                 Debug.LogWarning("Collider hit, but the object does not have a Player component.");
-            //}
+            }
         }
         else
         {
