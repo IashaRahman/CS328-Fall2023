@@ -6207,6 +6207,7 @@ MonoBehaviour:
   attackMask:
     serializedVersion: 2
     m_Bits: 8
+  player: {fileID: 0}
 --- !u!1 &505021783
 GameObject:
   m_ObjectHideFlags: 0
@@ -12049,7 +12050,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 224101264}
     - target: {fileID: 1297074143375892704, guid: bcf119636c8df124590ac564ae008011, type: 3}
+      propertyPath: isSpotted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297074143375892704, guid: bcf119636c8df124590ac564ae008011, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297074143375892704, guid: bcf119636c8df124590ac564ae008011, type: 3}
+      propertyPath: playerClose
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1297074143375892704, guid: bcf119636c8df124590ac564ae008011, type: 3}
@@ -12067,6 +12076,10 @@ PrefabInstance:
     - target: {fileID: 4932890887702934151, guid: bcf119636c8df124590ac564ae008011, type: 3}
       propertyPath: m_Name
       value: Enemy1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932890887702934151, guid: bcf119636c8df124590ac564ae008011, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5655562199996641006, guid: bcf119636c8df124590ac564ae008011, type: 3}
       propertyPath: rb
@@ -12170,6 +12183,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7837525353987417194, guid: 4bef4ce8f5cb4f849a1fa5fb16483c80, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1140863235}
     - target: {fileID: 7837525353987417194, guid: 4bef4ce8f5cb4f849a1fa5fb16483c80, type: 3}
       propertyPath: attackRange
       value: 1

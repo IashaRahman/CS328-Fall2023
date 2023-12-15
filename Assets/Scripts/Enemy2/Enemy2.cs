@@ -109,9 +109,5 @@ public class Enemy2 : MonoBehaviour
        // GameObject[] all = gameObject.GetComponents<>();
     }
 
-    IEnumerator StopAnimation()
-    {
-        yield return new WaitForSeconds(.1f);
-        animator.enabled = false;
-    }
+
 }

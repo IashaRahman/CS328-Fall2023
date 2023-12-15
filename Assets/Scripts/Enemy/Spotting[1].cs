@@ -36,12 +36,13 @@ public class Spotting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsPlayerClose())
+       
+        if (isSpotted)
         {
  
-                isAttacking = true;
-                isSpotted = true;
-                CallPeeps();
+            isAttacking = true;
+            isSpotted = true;
+            CallPeeps();
  
         }
 
@@ -54,6 +55,11 @@ public class Spotting : MonoBehaviour
                 RunTowardsPlayer();
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        isSpotted = IsPlayerClose();
     }
 
     // 
@@ -70,7 +76,7 @@ public class Spotting : MonoBehaviour
                 if (!isSpotted)
                 {
                     isAttacking = true;
-                    isSpotted = false;
+                    isSpotted = true;
                     CallPeeps();
                 }
 
@@ -105,6 +111,7 @@ public class Spotting : MonoBehaviour
     public bool IsPlayerClose()
     {
         float distance = Vector3.Distance(transform.position, player.position);
+        Debug.Log(distance);
         return distance < proximityThreshold;
     }
 
