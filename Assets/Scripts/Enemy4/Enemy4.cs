@@ -84,7 +84,7 @@ public class Enemy4 : MonoBehaviour
     {
         currentHealth -= damage;
 
-        animator.SetTrigger("Hurt");
+      //  animator.SetTrigger("Hurt");
 
         if (currentHealth <= 0)
         {
@@ -96,10 +96,10 @@ public class Enemy4 : MonoBehaviour
     {
         Debug.Log("Boss1 died!");
 
-        animator.SetBool("IsDead", true);
+       // animator.SetBool("IsDead", true);
 
         GetComponent<Collider2D>().enabled = false;
-        GetComponent<Boss1>().enabled = false;
+        GetComponent<Enemy4>().enabled = false;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         this.enabled = false;
     }

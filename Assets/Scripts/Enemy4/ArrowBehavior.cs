@@ -11,14 +11,26 @@ public class ArrowBehavior : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public Player player;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Destroy(gameObject, Lifetime);
+        player = GameObject.FindAnyObjectByType<Player>();
     }
 
     private void FixedUpdate()
     {
         rb.velocity = transform.up * speed;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject gameObject = collision.gameObject;
+        if (gameObject = player.gameObject)
+            player.TakeDamage();
+
+        Destroy(this);
     }
 }
