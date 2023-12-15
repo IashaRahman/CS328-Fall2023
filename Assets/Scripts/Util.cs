@@ -22,7 +22,6 @@ public class Util : MonoBehaviour
 
     public void CallReinforcements(int num, GameObject spawn)
     {
-
         Debug.Log("Called Guys");
         if (!alreadyCalled)
         {

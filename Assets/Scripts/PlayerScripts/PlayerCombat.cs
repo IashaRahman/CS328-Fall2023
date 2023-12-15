@@ -6,21 +6,21 @@ public class PlayerCombat : MonoBehaviour
 {
     public Animator animator;
 
-    public Transform attackPointRight; // Attack point for facing right
-    public Transform attackPointLeft;  // Attack point for facing left
+    public Transform attackPointRight;
+    public Transform attackPointLeft;
     public LayerMask enemyLayers;
 
-    public float attackRange = 0.5f;
+    public float attackRange = 1f;
     public int attackDamage = 40;
 
     public float attackRate = 2f;
     float nextAttackTime = 0f;
 
-    private Transform currentAttackPoint; // Reference to the current attack point
+    private Transform currentAttackPoint;
+    private bool isBlocking = false;
 
     void Start()
     {
-        // Initialize the current attack point based on the initial direction
         currentAttackPoint = transform.localScale.x > 0 ? attackPointRight : attackPointLeft;
     }
 
@@ -28,11 +28,22 @@ public class PlayerCombat : MonoBehaviour
     {
         if (Time.time >= nextAttackTime)
         {
+            // Check for attack input
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 FlipAttackPoint();
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
+            }
+
+            // Check for block input
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                Block();
+            }
+            else if (Input.GetKeyUp(KeyCode.B))
+            {
+                StopBlocking();
             }
         }
     }
@@ -45,29 +56,58 @@ public class PlayerCombat : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
+            // Damage calculation based on blocking
+            int damageToDeal = isBlocking ? attackDamage / 2 : attackDamage;
+
             Enemy1 enemy1Component = enemy.GetComponent<Enemy1>();
-            Boss1 boss1Component = enemy.GetComponent<Boss1>();
+            Boss2 boss2Component = enemy.GetComponent<Boss2>();
+            Enemy2 enemy2Component = enemy.GetComponent<Enemy2>();
+            Enemy3 enemy3Component = enemy.GetComponent<Enemy3>();
+            Enemy4 enemy4Component = enemy.GetComponent<Enemy4>();
 
             if (enemy1Component != null)
             {
-                enemy1Component.TakeDamage(attackDamage);
+                enemy1Component.TakeDamage(damageToDeal);
             }
-            else if (boss1Component != null)
+            else if (boss2Component != null)
             {
-                boss1Component.TakeDamage(attackDamage);
+                boss2Component.TakeDamage(damageToDeal);
+            }
+            else if (enemy2Component != null)
+            {
+                enemy2Component.TakeDamage(damageToDeal);
+            }
+            else if (enemy3Component != null)
+            {
+                enemy3Component.TakeDamage(damageToDeal / 2);
+            }
+            else if (enemy4Component != null)
+            {
+                enemy4Component.TakeDamage(damageToDeal);
             }
         }
     }
 
     void FlipAttackPoint()
     {
-        // Flip the attack point based on the player's direction
         float playerDirection = Input.GetAxisRaw("Horizontal");
 
         if (playerDirection > 0)
             currentAttackPoint = attackPointRight;
         else if (playerDirection < 0)
             currentAttackPoint = attackPointLeft;
+    }
+
+    void Block()
+    {
+        isBlocking = true;
+        animator.SetBool("Block", true);
+    }
+
+    void StopBlocking()
+    {
+        isBlocking = false;
+        animator.SetBool("Block", false);
     }
 
     private void OnDrawGizmosSelected()
