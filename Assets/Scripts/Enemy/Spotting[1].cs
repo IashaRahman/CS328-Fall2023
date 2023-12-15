@@ -148,7 +148,7 @@ public class Spotting : MonoBehaviour
         animator.SetBool("IsDead", true);
 
         GetComponent<Collider2D>().enabled = false;
-        GetComponent<Boss1>().enabled = false;
+        GetComponent<Enemy1>().enabled = false;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         this.enabled = false;
     }
