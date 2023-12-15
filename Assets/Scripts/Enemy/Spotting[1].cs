@@ -120,14 +120,14 @@ public class Spotting : MonoBehaviour
         rb.velocity = direction * forceMultiplier;
     }
 
-    public void PlayerDied()
-    {
-        isPlayerAlive = false;
-        animator.SetTrigger("IdleTrigger");
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.zero;
-        this.enabled = false;
-    }
+    //public void PlayerDied()
+    //{
+    //    isPlayerAlive = false;
+    //    animator.SetTrigger("IdleTrigger");
+    //    Rigidbody2D rb = GetComponent<Rigidbody2D>();
+    //    rb.velocity = Vector2.zero;
+    //    this.enabled = false;
+    //}
 
     public void TakeDamage(int damage)
     {
@@ -143,9 +143,9 @@ public class Spotting : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Boss1 died!");
+        Debug.Log("Enemy died!");
 
-        animator.SetBool("isDead", true);
+        animator.SetBool("IsDead", true);
 
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Boss1>().enabled = false;

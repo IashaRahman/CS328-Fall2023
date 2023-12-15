@@ -100,7 +100,6 @@ public class Enemy2 : MonoBehaviour
         animator.SetBool("isDead", true);
 
         GetComponent<Collider2D>().enabled = false;
-        GetComponent<Boss1>().enabled = false;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         this.enabled = false;
     }

@@ -1700,6 +1700,11 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 8955804132490552499, guid: bcf119636c8df124590ac564ae008011, type: 3}
   m_PrefabInstance: {fileID: 4618205443192702319}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &224101270 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 6388825317974282298, guid: bcf119636c8df124590ac564ae008011, type: 3}
+  m_PrefabInstance: {fileID: 4618205443192702319}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &250722842
 GameObject:
   m_ObjectHideFlags: 0
@@ -5897,11 +5902,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6730079407965115767, guid: edb782476de28ce45871ba0f27410851, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1207
+      value: -975.57
       objectReference: {fileID: 0}
     - target: {fileID: 6730079407965115767, guid: edb782476de28ce45871ba0f27410851, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -435.9
+      value: -540.22
       objectReference: {fileID: 0}
     - target: {fileID: 6730079407965115767, guid: edb782476de28ce45871ba0f27410851, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12040,6 +12045,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 224101264}
     - target: {fileID: 1297074143375892704, guid: bcf119636c8df124590ac564ae008011, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297074143375892704, guid: bcf119636c8df124590ac564ae008011, type: 3}
       propertyPath: enemyTypeToCall
       value: 
       objectReference: {fileID: 224101262}
@@ -12054,6 +12063,14 @@ PrefabInstance:
     - target: {fileID: 4932890887702934151, guid: bcf119636c8df124590ac564ae008011, type: 3}
       propertyPath: m_Name
       value: Enemy1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655562199996641006, guid: bcf119636c8df124590ac564ae008011, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 224101270}
+    - target: {fileID: 5655562199996641006, guid: bcf119636c8df124590ac564ae008011, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5655562199996641006, guid: bcf119636c8df124590ac564ae008011, type: 3}
       propertyPath: target.Array.data[0]
@@ -12160,9 +12177,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 393035000}
   - {fileID: 1588209065}
+  - {fileID: 1890857240}
   - {fileID: 4618205443192702319}
   - {fileID: 4877516010321399278}
-  - {fileID: 1890857240}
   - {fileID: 310536427}
   - {fileID: 184373388}
   - {fileID: 380500725}
