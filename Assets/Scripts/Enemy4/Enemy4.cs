@@ -23,10 +23,10 @@ public class Enemy4 : MonoBehaviour
 
     public float proximityThreshold = 5f;
 
-    private bool isFlipped = false;
-    private bool isPlayerAlive = true;
+    //private bool isFlipped = false;
+    //private bool isPlayerAlive = true;
 
-    public int maxHealth = 5;
+    public int maxHealth = 100;
     int currentHealth;
 
     private void Start()
@@ -96,7 +96,7 @@ public class Enemy4 : MonoBehaviour
     {
         Debug.Log("Boss1 died!");
 
-        animator.SetBool("isDead", true);
+        animator.SetBool("IsDead", true);
 
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Boss1>().enabled = false;

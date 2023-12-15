@@ -12,7 +12,7 @@ public class Enemy2 : MonoBehaviour
     private bool isFlipped = false;
     private bool isPlayerAlive = true;
 
-    public int maxHealth = 30;
+    public int maxHealth = 125;
     public int currentHealth;
 
     void Start()
@@ -97,7 +97,7 @@ public class Enemy2 : MonoBehaviour
     {
         Debug.Log("Enemy2 died!");
 
-        animator.SetBool("isDead", true);
+        animator.SetBool("IsDead", true);
 
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;

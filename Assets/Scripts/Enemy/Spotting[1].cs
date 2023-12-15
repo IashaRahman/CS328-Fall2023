@@ -24,7 +24,7 @@ public class Spotting : MonoBehaviour
 
     private bool isAttacking = false;
 
-    bool alreadyCalled = false;
+    //bool alreadyCalled = false;
 
     void Start()
     {
@@ -120,14 +120,14 @@ public class Spotting : MonoBehaviour
         rb.velocity = direction * forceMultiplier;
     }
 
-    //public void PlayerDied()
-    //{
-    //    isPlayerAlive = false;
-    //    animator.SetTrigger("IdleTrigger");
-    //    Rigidbody2D rb = GetComponent<Rigidbody2D>();
-    //    rb.velocity = Vector2.zero;
-    //    this.enabled = false;
-    //}
+    public void PlayerDied()
+    {
+        isPlayerAlive = false;
+        animator.SetTrigger("IdleTrigger");
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.velocity = Vector2.zero;
+        this.enabled = false;
+    }
 
     public void TakeDamage(int damage)
     {

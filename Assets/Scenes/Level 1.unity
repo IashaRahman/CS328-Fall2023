@@ -5804,7 +5804,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1034207331}
-  - {fileID: 1140863215}
   - {fileID: 669725440}
   - {fileID: 881273788}
   - {fileID: 180335076}
@@ -5822,7 +5821,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 393035000}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 48135226311387688, guid: edb782476de28ce45871ba0f27410851, type: 3}
       propertyPath: m_Layer
@@ -5902,15 +5901,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6730079407965115767, guid: edb782476de28ce45871ba0f27410851, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -975.57
+      value: -15.570007
       objectReference: {fileID: 0}
     - target: {fileID: 6730079407965115767, guid: edb782476de28ce45871ba0f27410851, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -540.22
+      value: -0.2199707
       objectReference: {fileID: 0}
     - target: {fileID: 6730079407965115767, guid: edb782476de28ce45871ba0f27410851, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6730079407965115767, guid: edb782476de28ce45871ba0f27410851, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12102,6 +12101,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1140863215}
+    - target: {fileID: 2610949079698108654, guid: 4bef4ce8f5cb4f849a1fa5fb16483c80, type: 3}
+      propertyPath: maxHealth
+      value: 125
+      objectReference: {fileID: 0}
     - target: {fileID: 3651622696409990008, guid: 4bef4ce8f5cb4f849a1fa5fb16483c80, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20.95
@@ -12177,6 +12180,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 393035000}
   - {fileID: 1588209065}
+  - {fileID: 431293157}
   - {fileID: 1890857240}
   - {fileID: 4618205443192702319}
   - {fileID: 4877516010321399278}
