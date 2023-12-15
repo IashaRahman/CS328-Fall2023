@@ -20,14 +20,15 @@ public class Util : MonoBehaviour
     }
 
 
-    public void CallReinforcements(int num, GameObject spawn)
+    public void CallReinforcements(int num, GameObject spawn, Transform NewPos)
     {
         Debug.Log("Called Guys");
         if (!alreadyCalled)
         {
-            for (int i = 0; i <= num; i++)
+            for (int i = 0; i < num; i++)
             {
-                Instantiate(spawn);
+              //  pos = spawn.transform.localPosition;
+                Instantiate(spawn,NewPos.position,NewPos.rotation);
             }
             alreadyCalled = true;
         }

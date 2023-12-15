@@ -9261,6 +9261,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391365406}
   m_CullTransparentMesh: 1
+--- !u!1 &1427375725 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4064811551843580029, guid: 4bef4ce8f5cb4f849a1fa5fb16483c80, type: 3}
+  m_PrefabInstance: {fileID: 4877516010321399278}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1477632690
 GameObject:
   m_ObjectHideFlags: 0
@@ -12050,7 +12055,7 @@ PrefabInstance:
     - target: {fileID: 1297074143375892704, guid: bcf119636c8df124590ac564ae008011, type: 3}
       propertyPath: enemyTypeToCall
       value: 
-      objectReference: {fileID: 224101262}
+      objectReference: {fileID: 1427375725}
     - target: {fileID: 1297074143375892704, guid: bcf119636c8df124590ac564ae008011, type: 3}
       propertyPath: enemyTypeToSpawn
       value: 
@@ -12166,8 +12171,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7837525353987417194, guid: 4bef4ce8f5cb4f849a1fa5fb16483c80, type: 3}
-      propertyPath: attackOffset.y
+      propertyPath: attackRange
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7837525353987417194, guid: 4bef4ce8f5cb4f849a1fa5fb16483c80, type: 3}
+      propertyPath: attackOffset.x
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7837525353987417194, guid: 4bef4ce8f5cb4f849a1fa5fb16483c80, type: 3}
+      propertyPath: attackOffset.y
+      value: 1.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

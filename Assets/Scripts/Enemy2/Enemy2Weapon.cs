@@ -19,15 +19,15 @@ public class Enemy2Weapon : MonoBehaviour
         Collider2D colInfo = Physics2D.OverlapCircle(pos, attackRange, attackMask);
         if (colInfo != null)
         {
-            Player player = colInfo.GetComponent<Player>();
-            if (player != null)
-            {
-                player.TakeDamage();
-            }
-            else
-            {
+           Player player = colInfo.GetComponent<Player>();
+            //if (player != null)
+            //{
+            player.TakeDamage();
+            //}
+          //  else
+           // {
                 Debug.LogWarning("Collider hit, but the object does not have a Player component.");
-            }
+            //}
         }
         else
         {

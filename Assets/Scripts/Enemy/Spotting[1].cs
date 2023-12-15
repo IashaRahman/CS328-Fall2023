@@ -80,7 +80,7 @@ public class Spotting : MonoBehaviour
 
     private void CallPeeps()
     {
-        util.CallReinforcements(2, enemyTypeToCall);
+        util.CallReinforcements(1, enemyTypeToCall,transform);
     }
 
     public void LookAtPlayer()

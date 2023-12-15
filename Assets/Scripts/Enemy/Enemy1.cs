@@ -35,6 +35,7 @@ public class Enemy1 : MonoBehaviour
 
         GetComponent<Collider2D>().enabled = false;
         GetComponent<BadGuyPatrol>().enabled = false;
+        GetComponent<Spotting>().enabled = false;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         this.enabled = false;
     }

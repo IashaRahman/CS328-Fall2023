@@ -100,7 +100,18 @@ public class Enemy2 : MonoBehaviour
         animator.SetBool("IsDead", true);
 
         GetComponent<Collider2D>().enabled = false;
+        GetComponent<Enemy2>().enabled = false;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         this.enabled = false;
+        // StopAnimation();
+
+        //  Destroy(animator);
+       // GameObject[] all = gameObject.GetComponents<>();
+    }
+
+    IEnumerator StopAnimation()
+    {
+        yield return new WaitForSeconds(.1f);
+        animator.enabled = false;
     }
 }
